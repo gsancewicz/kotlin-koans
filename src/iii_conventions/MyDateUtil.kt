@@ -15,3 +15,8 @@ fun MyDate.addTimeIntervals(timeInterval: TimeInterval, number: Int): MyDate {
     }
     return MyDate(c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE))
 }
+
+operator fun MyDate.plus(timeInterval: TimeInterval) : MyDate = addTimeIntervals(timeInterval, 1);
+operator fun MyDate.plus(intervals: TimeIntervals) : MyDate = addTimeIntervals(intervals.interval, intervals.number)
+
+operator fun TimeInterval.times(number: Int) : TimeIntervals = TimeIntervals(this, number);
